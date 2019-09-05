@@ -51,7 +51,7 @@ variable "web_acl_id" {
 
 variable "retain_on_delete" {
   description = "(Optional) - Disables the distribution instead of deleting it when destroying the resource through Terraform. If this is set, the distribution needs to be deleted manually afterwards. Default: false."
-  default     = true
+  default     = false
 }
 
 variable "custom_error_response" {

@@ -39,6 +39,10 @@ resource "aws_s3_bucket" "this" {
 
 resource "aws_cloudfront_origin_access_identity" "this" {
   comment = "${var.aliases[0]}-${var.region}"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_cloudfront_distribution" "this" {
@@ -107,4 +111,12 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   tags = merge(local.common_tags, var.extra_tags_cloudfront, var.extra_tags, local.common_tags_cloudfront)
+
+  depends_on = [
+    aws_cloudfront_origin_access_identity.this
+  ]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
