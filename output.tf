@@ -3,13 +3,13 @@ locals {
 }
 
 output "domain_name" {
-  value = element(aws_cloudfront_distribution.this.*.domain_name, local.len_aliases)
+  value = element(concat(aws_cloudfront_distribution.this.*.domain_name, list("")), local.len_aliases)
 }
 
 output "hosted_zone_id" {
-  value = element(aws_cloudfront_distribution.this.*.hosted_zone_id, local.len_aliases)
+  value = element(concat(aws_cloudfront_distribution.this.*.hosted_zone_id, list("")), local.len_aliases)
 }
 
 output "bucket_id" {
-  value = element(aws_s3_bucket.this.*.id, 0)
+  value = element(concat(aws_s3_bucket.this.*.id, list("")), 0)
 }
