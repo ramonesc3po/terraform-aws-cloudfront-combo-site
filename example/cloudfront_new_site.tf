@@ -1,5 +1,5 @@
 module "new_site" {
-  source = "../" # source = "github.com/ramonesc3po/terraform-aws-cloudfront-combo-site.git"
+  source = "../" # source = "github.com/ramonesc3po/terraform-aws-cloudfront-combo-site.git?ref=develop"
 
   tier                            = "production"
   organization                    = "example"
