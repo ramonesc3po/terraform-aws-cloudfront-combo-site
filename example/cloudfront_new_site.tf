@@ -5,5 +5,5 @@ module "new_site" {
   organization                    = "example"
   region                          = "us-east-1"
   aliases                         = ["new_site.com"] # even if you don't use cloudfront certificate put the alias.
-  certificate_deafault_cloudfront = true
+  certificate_default_cloudfront = true
 }
